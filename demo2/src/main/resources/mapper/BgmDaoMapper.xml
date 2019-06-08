@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.demo2.dao.BgmDao">
+
+    <select id="queryBgm" resultType="com.example.demo2.entity.Bgm">
+        select * from bgm
+
+    </select>
+
+    <select id="queryBgmById" parameterType="String" resultType="com.example.demo2.entity.Bgm">
+        select * from bgm where id = #{id}
+    </select>
+
+    <insert id="saveBgmManage" parameterType="com.example.demo2.entity.Bgm">
+        insert into bgm(id,author,name,path) values (#{id},#{author},#{name},#{path})
+    </insert>
+
+    <delete id="deleteBgmById" parameterType="String">
+        delete from bgm where id = #{id}
+    </delete>
+
+    <update id="updateBgm" parameterType="com.example.demo2.entity.Bgm">
+        update bgm set author = #{author} , name = #{name} , path = #{path} where id = #{id}
+    </update>
+</mapper>
